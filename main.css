@@ -1,0 +1,56 @@
+body {
+    margin: 0 auto;
+}
+
+canvas {
+    border: 2px dotted gray;
+}
+
+.controls {
+    border 2px dotted gray;
+    width: 600px;
+    text-align: right;
+}
+
+.controls a {
+    float: left;
+}
+
+.game {
+    width: 605px;
+    margin: 0 5px;
+}
+
+.help {
+    position: absolute;
+    left: 620px;
+    right: 10px;
+    top: 2em;
+}
+
+math {
+    display: block;
+    text-align: center;
+    margin: -11px 0;
+}
+
+mi.matrix {
+    font-weight: bold;
+}
+
+mi.vector {
+    font-style: italic;
+}
+
+h1 {
+    border-bottom: 1px solid black;
+    text-align: center;
+    margin: 0 0 .5em 0;
+    height: 1.25em;
+}
+
+p {
+    text-align: justify;
+    text-indent: .25in;
+}
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf8" />
+    <title>Eigenvalue Game</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body onload="setup()">
+    <h1>Eigenvalue Game</h1>
+    <div class="game">
+      <canvas id="R2" width="600" height="550"></canvas>
+      <div class="controls">
+        <a onclick="reset()" href="index.html">Reset</a>
+        Points: <span id="points">0</span>
+        Clicks: <span id="clicks">0</span>
+      </div>
+    </div>
+    <div class="help">
+      <h2>What are Eigenvalues?</h2>
+      <math xmlns="http://www.w3c.org/1998/Math/MathML">
+        <mrow>
+          <mi class="matrix">M</mi>
+          <mo>&#x2062;</mo>
+          <mi class="vector">v</mi>
+          <mo>=</mo>
+          <mi>&lambda;</mi>
+          <mo>&#x2062;</mo>
+          <mi class="vector">v</mi>
+        </mrow>
+      </math>
+      <p>Let's start with what an eigenspace is. An eigenspace is a subspace
+      of a vector space that is invariant under the action of a matrix. Now,
+      any vector in this eigenspace is an eigenvector. Since the eigenspace
+      is invariant, it must be stretched by some factor &lambda; &mdash; this
+      is the eigenvalue. Because of linearity, the eigenvalue is well-defined;
+      that is, it is the same for all eigenvectors in a particular eigenspace.
+      </p>
+      <h2>How to Play</h2>
+      <p>At the left you see &#x211D;<sup>2</sup>. You can click on any point
+      of the plane to place a vector there; this vector will be drawn, together
+      with its image under some secret matrix. The goal is to find the eigenspaces
+      of this matrix; if you know where it is, simply click there. A short note:
+      getting the first eigenvalue is easy; it's the second that is hard.</p>
+      <p>Also, very rarely, you'll get a matrix without eigenvalues. Sorry! Just
+      click &ldquo;Reset&rdquo; under the plane. Happy eigening!</p>
+      <h2>Credits</h2>
+      <p>Programmed by Pavel Panchekha. Inspired by the Matlab demo,
+      &ldquo;Eigenvalue Game&rdquo;. And finally, many thanks to the WhatWG for
+      &lt;canvas&gt; and the rest of HTML5.</p>
+    </div>
+  </body>
+</html>
