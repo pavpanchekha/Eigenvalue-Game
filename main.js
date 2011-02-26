@@ -72,6 +72,8 @@ function draw_vector(v, color) {
 }
 
 function on_click(evt) {
+    if (eig.length >= 2) return;
+
     var x = evt.clientX - r2.offsetLeft - 300;
     var y = 300 - (evt.clientY - r2.offsetTop);
 
@@ -82,17 +84,17 @@ function on_click(evt) {
     if (angle(init, image) < .1) {
         // Eigenvector!
         draw_vector(image, "#4e9a06");
-        
-        if (!eig.length) {
-            eig.push(image);
-        }
 
+        var is_new = true;
         for (var v in eig) {
-            if (angle(eig[v], image) > .2) {
-                eig.push(image);
+            if (angle(eig[v], image) < .2) {
+                is_new = false;
                 break;
             }
         }
+
+        if (is_new) eig.push(image);
+        if (eig.length >= 2) document.getElementById("reset-button").innerHTML = "Winner!";
 
         var value = Math.sqrt(image[0] / init[0] * image[1] / image[1]);
     } else {
