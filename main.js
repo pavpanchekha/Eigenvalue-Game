@@ -1,12 +1,12 @@
-function randn() {
-    var a = 0;
-    for (var i = 0; i < 25; i++) {
-        a += Math.random() * 2 - 1;
-    }
-    return a;
-}
-
 function gaussianmat() {
+    function randn() {
+        var a = 0;
+        for (var i = 0; i < 25; i++) {
+            a += Math.random() * 2 - 1;
+        }
+        return a;
+    }
+
     return [[randn(), randn()], [randn(), randn()]];
 }
 
@@ -15,7 +15,16 @@ function randmat() {
         var a = gaussianmat();
         var charpol = [a[0][0]*a[1][1] - a[1][0]*a[0][1], a[0][0] + a[1][1], 1];
         var desc = charpol[1]*charpol[1] - 4 * charpol[0] * charpol[2];
-    } while (desc < 0);
+        if (desc < 0) continue;
+
+        var ev1 = (-charpol[1] + Math.sqrt(desc)) / charpol[0];
+        var ev2 = (-charpol[1] - Math.sqrt(desc)) / charpol[0];
+        var evect1 = [a[0][1], ev1 - a[0][0]]
+        var evect2 = [a[0][1], ev2 - a[0][0]]
+        if (angle(evect1, evect2) < .2) continue;
+        break;
+    } while (true);
+
     return a;
 }
 
